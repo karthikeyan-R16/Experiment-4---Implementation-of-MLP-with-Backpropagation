@@ -118,6 +118,7 @@ Normalize our dataset.
 8. Finally, call the functions confusion_matrix(), and the classification_report() in order to evaluate the performance of our classifier.
 
 ## PROGRAM 
+```
 Developed by : Karthikeyan R
 Registration number : 212222240045
 import pandas as pd
@@ -171,6 +172,7 @@ print(predictions)
 print(confusion_matrix(y_test,predictions))
 
 print(classification_report(y_test,predictions))
+```
 
 ## OUTPUT 
 ![201331833-a9b0b15a-dd1d-4b2b-a2cd-1cb26eba89d8](https://user-images.githubusercontent.com/119421232/232493631-87585c13-a3a2-4d4f-9af6-64b0b8a25989.png)
