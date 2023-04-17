@@ -173,9 +173,11 @@ print(confusion_matrix(y_test,predictions))
 print(classification_report(y_test,predictions))
 
 ## OUTPUT 
-![201331937-18f6955b-b69b-4ef2-ad9f-462286cc2873](https://user-images.githubusercontent.com/119421232/232493003-4a30edcb-f09f-4ed1-b972-f561c826bce4.png)
-![201331876-8a8c33fc-e31e-420e-9de4-23716f1019e2](https://user-images.githubusercontent.com/119421232/232493085-a5927239-1c75-452e-a993-a0db72545c17.png)
-![201331833-a9b0b15a-dd1d-4b2b-a2cd-1cb26eba89d8](https://user-images.githubusercontent.com/119421232/232493135-5a11fac5-9a39-47e9-aa2d-d327da44c509.png)
+![201331833-a9b0b15a-dd1d-4b2b-a2cd-1cb26eba89d8](https://user-images.githubusercontent.com/119421232/232493631-87585c13-a3a2-4d4f-9af6-64b0b8a25989.png)
+
+![201331876-8a8c33fc-e31e-420e-9de4-23716f1019e2](https://user-images.githubusercontent.com/119421232/232493697-0699270e-e306-4417-9e1f-8aba2e3de21d.png)
+
+![201331937-18f6955b-b69b-4ef2-ad9f-462286cc2873](https://user-images.githubusercontent.com/119421232/232493756-d8cb7adf-8258-4473-b210-f5e326d65d93.png)
 
 
 ## RESULT
