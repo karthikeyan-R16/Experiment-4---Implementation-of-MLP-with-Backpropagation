@@ -118,8 +118,8 @@ Normalize our dataset.
 8. Finally, call the functions confusion_matrix(), and the classification_report() in order to evaluate the performance of our classifier.
 
 ## PROGRAM 
-Developed by : Sneha m
-Registration number : 212219220048
+Developed by : Karthikeyan R
+Registration number : 212222240045
 import pandas as pd
 import sklearn
 from sklearn import preprocessing
