@@ -119,67 +119,51 @@ Normalize our dataset.
 
 ## PROGRAM 
 ```
-Developed by : Karthikeyan R
-Registration number : 212222240045
 import pandas as pd
-import sklearn
+import numpy as np
+import matplotlib.pyplot as plt
+data=pd.read_csv("/content/IRIS (1).csv")
+data.head()
+
+name=["sepal_length","sepal_width","petal_length","petal_width"]
+x=data.iloc[:,0:4]
+y=data.select_dtypes(include=[object])
+x.head()
+y.head()
+
 from sklearn import preprocessing
+label_encoder=preprocessing.LabelEncoder()
+data['species']=label_encoder.fit_transform(data['species'])
+data['species'].unique()
+
 from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.20)
 from sklearn.preprocessing import StandardScaler
-from sklearn.neural_network import MLPClassifier
+scaler=StandardScaler()
+scaler.fit(x_train)
+x_train=scaler.transform(x_train)
+x_test=scaler.transform(x_test)
+
 from sklearn.metrics import classification_report, confusion_matrix
-
-url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
-names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'Class']
-
-irisdata = pd.read_csv(url, names=names)
-
-# Takes first 4 columns and assign them to variable "X"
-X = irisdata.iloc[:, 0:4]
-
-# Takes first 5th columns and assign them to variable "Y". Object dtype refers to strings.
-y = irisdata.select_dtypes(include=[object])  
-
-X.head()
-
-y.head()
-
-# y actually contains all categories or classes:
-y.Class.unique()
-
-# Now transforming categorial into numerical values
-le = preprocessing.LabelEncoder()
-y = y.apply(le.fit_transform)
-y.head()
-
-# Now for train and test split (80% of  dataset into  training set and  other 20% into test data)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20)  
-
-# Feature scaling
-scaler = StandardScaler()  
-scaler.fit(X_train)
-
-X_train = scaler.transform(X_train)  
-X_test = scaler.transform(X_test)
-
-mlp = MLPClassifier(hidden_layer_sizes=(10, 10, 10), max_iter=1000)  
-mlp.fit(X_train, y_train.values.ravel())  
-predictions = mlp.predict(X_test) 
-
+from sklearn.neural_network import MLPClassifier
+mlp=MLPClassifier(hidden_layer_sizes=(10,10,10),max_iter=1000)
+mlp.fit(x_train,y_train.values.ravel())
+predictions=mlp.predict(x_test)
 print(predictions)
 
-# Last thing: evaluation of algorithm performance in classifying flowers
 print(confusion_matrix(y_test,predictions))
-
 print(classification_report(y_test,predictions))
 ```
+## output
+![nn1](https://github.com/karthikeyan-R16/Experiment-4---Implementation-of-MLP-with-Backpropagation/assets/119421232/b1d8f6c6-e2cd-47c4-81d7-f3abeaad83a7)
 
-## OUTPUT 
-![201331833-a9b0b15a-dd1d-4b2b-a2cd-1cb26eba89d8](https://user-images.githubusercontent.com/119421232/232493631-87585c13-a3a2-4d4f-9af6-64b0b8a25989.png)
+![nn2](https://github.com/karthikeyan-R16/Experiment-4---Implementation-of-MLP-with-Backpropagation/assets/119421232/e2855753-b5ca-4703-9a71-302c4e2848a6)
 
-![201331876-8a8c33fc-e31e-420e-9de4-23716f1019e2](https://user-images.githubusercontent.com/119421232/232493697-0699270e-e306-4417-9e1f-8aba2e3de21d.png)
+![nn3](https://github.com/karthikeyan-R16/Experiment-4---Implementation-of-MLP-with-Backpropagation/assets/119421232/67889112-436e-4648-8dca-36fa9d4fb28f)
 
-![201331937-18f6955b-b69b-4ef2-ad9f-462286cc2873](https://user-images.githubusercontent.com/119421232/232493756-d8cb7adf-8258-4473-b210-f5e326d65d93.png)
+![nn5](https://github.com/karthikeyan-R16/Experiment-4---Implementation-of-MLP-with-Backpropagation/assets/119421232/b0cd8a5b-8cfd-4ac0-ae74-f6875527a3f8)
+
+![nn6 1](https://github.com/karthikeyan-R16/Experiment-4---Implementation-of-MLP-with-Backpropagation/assets/119421232/cf051ea5-4b56-4ff5-8cd3-10cd3c75c6c0)
 
 
 ## RESULT
